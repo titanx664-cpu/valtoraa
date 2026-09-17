@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import type { ReactNode } from "react";
 import { motion } from "motion/react";
-import { ArrowRight, Check, Network, WalletCards } from "lucide-react";
+import { ArrowRight, Check, Download, Network, WalletCards } from "lucide-react";
 import { Button } from "@/components/ui/button.tsx";
+import { VALTORA_ANDROID_APK_PATH } from "@/lib/downloads.ts";
 
 const rise = { hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0 } };
 
@@ -24,6 +25,7 @@ export function LandingHero() {
           </motion.p>
           <motion.div variants={rise} transition={{ duration: 0.5 }} className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Button asChild size="lg" className="h-12 rounded-xl px-6 text-sm shadow-[0_14px_36px_oklch(0.72_0.18_155_/_0.2)]"><Link to="/register">Create your account <ArrowRight size={16} /></Link></Button>
+            <Button asChild size="lg" variant="secondary" className="h-12 rounded-xl px-6 text-sm"><a href={VALTORA_ANDROID_APK_PATH} download><Download size={16} />Download Valtora App</a></Button>
             <Button asChild size="lg" variant="secondary" className="h-12 rounded-xl px-6 text-sm"><a href="#plans">Explore membership plans</a></Button>
           </motion.div>
           <motion.div variants={rise} transition={{ duration: 0.5 }} className="mt-9 flex flex-wrap gap-x-5 gap-y-3 text-sm text-muted-foreground">
