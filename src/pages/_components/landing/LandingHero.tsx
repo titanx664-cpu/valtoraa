@@ -14,9 +14,6 @@ export function LandingHero() {
       <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-full opacity-[0.18] [background-image:linear-gradient(oklch(0.72_0.18_155_/_0.12)_1px,transparent_1px),linear-gradient(90deg,oklch(0.72_0.18_155_/_0.12)_1px,transparent_1px)] [background-size:56px_56px] [mask-image:linear-gradient(to_bottom,black,transparent_78%)]" />
       <div className="mx-auto grid min-h-[calc(100svh-4.5rem)] max-w-7xl items-center gap-14 px-5 py-20 sm:px-6 md:py-24 lg:grid-cols-[1.02fr_0.98fr] lg:gap-10 lg:px-8 xl:py-28">
         <motion.div initial="hidden" animate="show" variants={{ show: { transition: { staggerChildren: 0.09 } } }} className="relative z-10 max-w-2xl">
-          <motion.div variants={rise} transition={{ duration: 0.5 }} className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-3.5 py-1.5 text-xs font-semibold tracking-wide text-primary">
-            <span className="size-1.5 rounded-full bg-primary shadow-[0_0_10px_oklch(0.72_0.18_155)]" /> Membership & referral platform
-          </motion.div>
           <motion.h1 variants={rise} transition={{ duration: 0.55 }} className="mt-7 text-5xl font-black tracking-[-0.055em] text-balance leading-[0.97] sm:text-6xl md:text-7xl xl:text-[5.25rem]">
             Build meaningful <span className="text-primary emerald-glow-text">connections.</span><br /> Move with clarity.
           </motion.h1>
