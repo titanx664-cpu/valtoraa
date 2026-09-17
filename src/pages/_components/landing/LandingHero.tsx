@@ -24,9 +24,8 @@ export function LandingHero() {
             Valtora brings membership, referral activity, verified payment review and controlled withdrawals into one focused platform.
           </motion.p>
           <motion.div variants={rise} transition={{ duration: 0.5 }} className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Button asChild size="lg" className="h-12 rounded-xl px-6 text-sm shadow-[0_14px_36px_oklch(0.72_0.18_155_/_0.2)]"><Link to="/register">Create your account <ArrowRight size={16} /></Link></Button>
-            <Button asChild size="lg" variant="secondary" className="h-12 rounded-xl px-6 text-sm"><a href={VALTORA_ANDROID_APK_PATH} download><Download size={16} />Download Valtora App</a></Button>
-            <Button asChild size="lg" variant="secondary" className="h-12 rounded-xl px-6 text-sm"><a href="#plans">Explore membership plans</a></Button>
+            <Button asChild size="lg" className="h-12 rounded-xl px-6 text-sm shadow-[0_14px_36px_oklch(0.72_0.18_155_/_0.2)]"><a href={VALTORA_ANDROID_APK_PATH} download><Download size={16} />Download Valtora App</a></Button>
+            <Button asChild size="lg" variant="secondary" className="h-12 rounded-xl px-6 text-sm"><Link to="/register">Create your account <ArrowRight size={16} /></Link></Button>
           </motion.div>
           <motion.div variants={rise} transition={{ duration: 0.5 }} className="mt-9 flex flex-wrap gap-x-5 gap-y-3 text-sm text-muted-foreground">
             {['Transparent plan details', 'Two-level referral structure', 'Verified payment review'].map((item) => <span key={item} className="inline-flex items-center gap-2"><Check size={15} className="text-primary" />{item}</span>)}
