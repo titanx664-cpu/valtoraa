@@ -76,7 +76,7 @@ function DashboardShell() {
       {/* ── DESKTOP SIDEBAR ── */}
       <aside className="hidden md:flex flex-col w-64 bg-sidebar border-r border-sidebar-border flex-shrink-0">
         <div className="px-5 py-5 border-b border-sidebar-border">
-          <span className="text-xl font-black tracking-tight text-primary emerald-glow-text">VALTORA</span>
+          <img src="/assets/valtora-logo.png" alt="Valtora" className="h-7 w-auto" />
         </div>
         <nav className="flex-1 px-3 py-4 space-y-1 overflow-y-auto">
           {NAV_ITEMS.map((item) => (
@@ -128,7 +128,7 @@ function DashboardShell() {
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
               className="fixed inset-y-0 left-0 z-50 w-72 bg-sidebar border-r border-sidebar-border flex flex-col md:hidden">
               <div className="flex items-center justify-between px-5 py-5 border-b border-sidebar-border">
-                <span className="text-xl font-black text-primary emerald-glow-text">VALTORA</span>
+                <img src="/assets/valtora-logo.png" alt="Valtora" className="h-7 w-auto" />
                 <button onClick={() => setSidebarOpen(false)} className="text-muted-foreground p-1.5 clay-sm">
                   <X size={16} />
                 </button>
@@ -181,7 +181,7 @@ function DashboardShell() {
       <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
         {/* Mobile top header */}
         <header className="md:hidden flex items-center justify-between px-4 py-3.5 border-b border-border bg-sidebar/80 backdrop-blur-xl flex-shrink-0">
-          <span className="text-lg font-black text-primary">VALTORA</span>
+          <img src="/assets/valtora-logo.png" alt="Valtora" className="h-7 w-auto" />
           <div className="flex items-center gap-2">
             {(unreadCount ?? 0) > 0 && (
               <NavLink to="/dashboard/notifications" className="relative p-2">

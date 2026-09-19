@@ -46,13 +46,11 @@ export function LandingHeader() {
           aria-label="Valtora home"
           className="group flex items-center gap-2.5"
         >
-          <span className="flex size-8 items-center justify-center rounded-xl border border-primary/30 bg-primary/10 text-sm font-black text-primary shadow-[0_0_28px_rgb(255_106_0_/_0.16)]">
-            V
-          </span>
-
-          <span className="text-lg font-black tracking-[0.08em] text-foreground sm:text-xl">
-            VALTORA
-          </span>
+          <img
+            src="/assets/valtora-logo.png"
+            alt="Valtora"
+            className="h-8 w-auto sm:h-9"
+          />
         </Link>
 
         {/* Desktop Navigation */}

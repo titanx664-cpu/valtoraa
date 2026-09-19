@@ -89,7 +89,7 @@ export default function AdminLayout() {
             <aside className="hidden md:flex w-56 flex-col bg-sidebar border-r border-sidebar-border">
               <div className="px-5 py-4 border-b border-sidebar-border">
                 <p className="text-xs font-semibold text-primary uppercase tracking-widest">Admin Panel</p>
-                <p className="text-xl font-bold text-foreground mt-0.5">VALTORA</p>
+                <img src="/assets/valtora-logo.png" alt="Valtora" className="mt-0.5 h-7 w-auto" />
               </div>
               <AdminNavItems />
               <div className="px-3 pb-4">
