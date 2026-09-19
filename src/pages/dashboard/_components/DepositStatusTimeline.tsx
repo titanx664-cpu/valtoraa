@@ -74,7 +74,7 @@ export default function DepositStatusTimeline({ status, createdAt, planName }: P
                   className="flex items-center gap-3 relative z-10"
                 >
                   <motion.div
-                    animate={active ? { scale: [1, 1.15, 1], boxShadow: ["0 0 0px oklch(0.72 0.18 155 / 0)", "0 0 10px oklch(0.72 0.18 155 / 0.4)", "0 0 0px oklch(0.72 0.18 155 / 0)"] } : {}}
+                    animate={active ? { scale: [1, 1.15, 1], boxShadow: ["0 0 0px rgb(255 106 0 / 0)", "0 0 10px rgb(255 106 0 / 0.4)", "0 0 0px rgb(255 106 0 / 0)"] } : {}}
                     transition={{ duration: 2, repeat: Infinity }}
                     className={cn(
                       "w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 border transition-all",

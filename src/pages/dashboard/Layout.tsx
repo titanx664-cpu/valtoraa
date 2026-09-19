@@ -205,7 +205,7 @@ function DashboardShell() {
 
         {/* ── MOBILE BOTTOM NAV ── */}
         <nav className="md:hidden fixed bottom-0 left-0 right-0 z-30 flex items-stretch border-t border-border"
-          style={{ background: "oklch(0.12 0.009 155 / 0.95)", backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)" }}>
+          style={{ background: "rgb(255 255 255 / 0.95)", backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)" }}>
           {BOTTOM_NAV.map((item) => (
             <NavLink key={item.to} to={item.to} end={item.end}
               className={({ isActive }) => cn(
