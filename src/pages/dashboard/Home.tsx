@@ -48,7 +48,7 @@ export default function DashboardHome() {
         <motion.div whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.99 }}
           className="clay-primary p-6 relative overflow-hidden">
           <div className="absolute inset-0 opacity-30"
-            style={{ background: "radial-gradient(circle at 80% 20%, oklch(0.85 0.15 155 / 0.3) 0%, transparent 60%)" }} />
+            style={{ background: "radial-gradient(circle at 80% 20%, rgb(255 45 141 / 0.16) 0%, transparent 60%)" }} />
           <div className="relative z-10">
             <div className="flex items-center gap-2 mb-1">
               <Wallet size={15} className="text-primary-foreground/70" />

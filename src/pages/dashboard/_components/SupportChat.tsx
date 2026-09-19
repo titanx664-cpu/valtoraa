@@ -92,7 +92,7 @@ export default function SupportChat() {
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ type: "spring", stiffness: 350, damping: 28 }}
             className="fixed bottom-24 right-4 md:bottom-6 md:right-6 z-50 w-[calc(100vw-2rem)] max-w-sm flex flex-col rounded-2xl border border-border shadow-2xl overflow-hidden"
-            style={{ background: "oklch(0.10 0.009 155)", maxHeight: "70vh" }}
+            style={{ background: "#ffffff", maxHeight: "70vh" }}
           >
             {/* Header */}
             <div className="flex items-center justify-between px-4 py-3 border-b border-border bg-sidebar/60">

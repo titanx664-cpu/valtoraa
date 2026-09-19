@@ -35,7 +35,7 @@ export function LandingHeader() {
     <header
       className={`fixed inset-x-0 top-0 z-40 border-b backdrop-blur-xl transition-[background-color,border-color,box-shadow] duration-300 ${
         hasScrolled
-          ? "border-primary/20 bg-background/88 shadow-[0_12px_36px_oklch(0.03_0.005_155_/_0.38)]"
+          ? "border-primary/20 bg-background/88 shadow-[0_12px_36px_rgb(15_23_42_/_0.12)]"
           : "border-border/60 bg-background/80"
       }`}
     >
@@ -46,7 +46,7 @@ export function LandingHeader() {
           aria-label="Valtora home"
           className="group flex items-center gap-2.5"
         >
-          <span className="flex size-8 items-center justify-center rounded-xl border border-primary/30 bg-primary/10 text-sm font-black text-primary shadow-[0_0_28px_oklch(0.72_0.18_155_/_0.16)]">
+          <span className="flex size-8 items-center justify-center rounded-xl border border-primary/30 bg-primary/10 text-sm font-black text-primary shadow-[0_0_28px_rgb(255_106_0_/_0.16)]">
             V
           </span>
 
@@ -85,7 +85,7 @@ export function LandingHeader() {
           {/* Get Started — visible on mobile beside hamburger */}
           <Button
             asChild
-            className="h-10 rounded-xl px-3 text-xs shadow-[0_10px_30px_oklch(0.72_0.18_155_/_0.18)] sm:px-4 sm:text-sm"
+            className="h-10 rounded-xl px-3 text-xs shadow-[0_10px_30px_rgb(255_106_0_/_0.18)] sm:px-4 sm:text-sm"
           >
             <Link to="/register">
               Get Started
