@@ -46,6 +46,7 @@ export async function executeQuery(path:string,args:any={}) {
       if(fn==='getMyCommissions'){const {data,error}=await supabase.from('commissions').select('*').eq('recipient_id',p.id).order('created_at',{ascending:false}).limit(n);if(error)err(error);return page(normalizeRows(data),n);}
       if(fn==='getMyWithdrawals'){const {data,error}=await supabase.from('withdrawals').select('*').eq('user_id',p.id).order('created_at',{ascending:false}).limit(n);if(error)err(error);return page(normalizeRows(data),n);}
       if(fn==='getMyReferrals') return await rpc('get_my_referrals');
+      if(fn==='getMyFirstPurchaseBonusStatus') return await rpc('get_my_first_purchase_bonus_status');
       if(fn==='getMyNotifications'){const {data,error}=await supabase.from('notifications').select('*').eq('user_id',p.id).order('created_at',{ascending:false}).limit(n);if(error)err(error);return page(normalizeRows(data),n);}
       if(fn==='getUnreadCount'){const {count,error}=await supabase.from('notifications').select('id',{count:'exact',head:true}).eq('user_id',p.id).eq('is_read',false);if(error)err(error);return count??0;}
       if(fn==='adminGetDeposits'){let q=supabase.from('deposits').select('*').order('created_at',{ascending:false}).limit(n);if(args.status)q=q.eq('status',args.status);const {data,error}=await q;if(error)err(error);return page(normalizeRows(data),n);}

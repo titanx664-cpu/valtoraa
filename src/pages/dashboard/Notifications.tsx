@@ -14,6 +14,7 @@ const NOTIF_ICONS: Record<string, string> = {
   deposit_rejected: "❌",
   plan_activated: "🚀",
   commission_received: "💎",
+  first_purchase_bonus_credited: "🎁",
   withdrawal_submitted: "⏳",
   withdrawal_approved: "✅",
   withdrawal_processing: "⚙️",
