@@ -7,12 +7,11 @@ import { Input } from "@/components/ui/input.tsx";
 import { Label } from "@/components/ui/label.tsx";
 import { Skeleton } from "@/components/ui/skeleton.tsx";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select.tsx";
-import { formatPKR, formatDateTime, STATUS_COLORS, isSundayKarachi } from "@/lib/format.ts";
+import { formatPKR, formatDateTime, STATUS_COLORS } from "@/lib/format.ts";
 import { toast } from "sonner";
 import { ConvexError } from "@/lib/app-error.ts";
 import { cn } from "@/lib/utils.ts";
 import { ArrowUpRight } from "lucide-react";
-import WithdrawalCountdown from "./_components/WithdrawalCountdown.tsx";
 
 export default function WithdrawalsPage() {
   const [tab, setTab] = useState<"request" | "history">("request");
@@ -66,11 +65,8 @@ export default function WithdrawalsPage() {
         <h1 className="text-2xl font-bold flex items-center gap-2">
           <ArrowUpRight size={22} className="text-primary" /> Withdrawals
         </h1>
-        <p className="text-muted-foreground text-sm mt-1">Withdrawals are processed on Sundays (Asia/Karachi time)</p>
+        <p className="text-muted-foreground text-sm mt-1">Submit a withdrawal request whenever you are eligible.</p>
       </div>
-
-      {/* Countdown / Sunday notice */}
-      <WithdrawalCountdown />
 
       <div className="flex gap-2">
         <Button size="sm" variant={tab === "request" ? "default" : "secondary"} onClick={() => setTab("request")}>
@@ -90,13 +86,7 @@ export default function WithdrawalsPage() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            {!isSundayKarachi() ? (
-              <div className="text-center py-8 text-muted-foreground">
-                <p className="text-sm">Withdrawals are only available on Sundays (PKT)</p>
-                <p className="text-xs mt-1 text-muted-foreground/60">The countdown above shows when the next window opens.</p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="space-y-2">
                   <Label>Amount (PKR)</Label>
                   <Input
@@ -145,8 +135,7 @@ export default function WithdrawalsPage() {
                 <p className="text-xs text-center text-muted-foreground">
                   Expected processing time: 6–8 hours
                 </p>
-              </form>
-            )}
+            </form>
           </CardContent>
         </Card>
       )}
