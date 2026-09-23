@@ -10,7 +10,6 @@ import {
 import { cn } from "@/lib/utils.ts";
 import { motion } from "motion/react";
 import OnboardingChecklist from "./_components/OnboardingChecklist.tsx";
-import WithdrawalCountdown from "./_components/WithdrawalCountdown.tsx";
 
 export default function DashboardHome() {
   const wallet = useQuery(api.financial.getMyWallet);
@@ -70,9 +69,6 @@ export default function DashboardHome() {
 
       {/* Onboarding checklist */}
       <OnboardingChecklist />
-
-      {/* Withdrawal countdown */}
-      <WithdrawalCountdown />
 
       {/* Stats grid */}
       <div className="grid grid-cols-3 gap-3">
