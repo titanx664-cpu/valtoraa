@@ -25,7 +25,7 @@ Valtora is a React + Vite application migrated from the Hercules/Convex implemen
 - Never put the Supabase service-role key in `.env.local` for this browser app or in client code.
 - Authentication uses Supabase Email + Password. Enable the Email provider in Supabase Auth before registering users.
 - Financial mutations are implemented as security-definer PostgreSQL functions and protected by admin checks/RLS.
-- Withdrawal day is enforced by PostgreSQL using `Asia/Karachi` time.
+- Eligible users can submit withdrawal requests at any time; PostgreSQL enforces the remaining financial and account validations.
 - The ledger is the balance source of truth; plan-purchase payments are retained for audit but explicitly excluded from the withdrawable wallet.
 - The old Hercules/Convex backend is intentionally removed.
 

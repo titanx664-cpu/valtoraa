@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input.tsx";
 import { Label } from "@/components/ui/label.tsx";
 import { Skeleton } from "@/components/ui/skeleton.tsx";
 import { formatPKR } from "@/lib/format.ts";
+import { firstPurchaseBonusAmount } from "@/lib/first-purchase-bonus.ts";
 import { toast } from "sonner";
 import { ConvexError } from "@/lib/app-error.ts";
 import { cn } from "@/lib/utils.ts";
@@ -23,11 +24,13 @@ export default function DepositsPage() {
     paginationOpts: { numItems: 10, cursor: null },
   });
   const submitDeposit = useMutation(api.financial.submitDeposit);
+  const firstPurchaseBonus = useQuery(api.financial.getMyFirstPurchaseBonusStatus);
 
   const [txId, setTxId] = useState("");
   const [submitting, setSubmitting] = useState(false);
 
   const selectedPlan = plans?.find((p: any) => p._id === selectedPlanId);
+  const isFirstPurchaseEligible = firstPurchaseBonus?.isEligible === true;
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -94,6 +97,11 @@ export default function DepositsPage() {
                     <span className="text-xs font-semibold uppercase tracking-wider text-primary">{plan.name}</span>
                   </div>
                   <p className="text-3xl font-bold mb-4">{formatPKR(plan.price)}</p>
+                  {isFirstPurchaseEligible && (
+                    <p className="mb-4 rounded-md bg-primary/10 px-2 py-1 text-xs font-semibold text-primary">
+                      + {formatPKR(firstPurchaseBonusAmount(plan.price))} First Purchase Bonus
+                    </p>
+                  )}
                   <div className="space-y-1 text-sm">
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Level 1 Commission</span>
@@ -172,6 +180,12 @@ export default function DepositsPage() {
                       Plan: <strong className="text-foreground">{selectedPlan.name}</strong> —{" "}
                       <strong className="text-primary">{formatPKR(selectedPlan.price)}</strong>
                     </p>
+                    {isFirstPurchaseEligible && (
+                      <div className="rounded-lg border border-primary/25 bg-primary/5 p-3 text-sm">
+                        <p className="font-semibold text-primary">First Purchase Bonus: +{formatPKR(firstPurchaseBonusAmount(selectedPlan.price))}</p>
+                        <p className="mt-1 text-xs text-muted-foreground">This 7.5% bonus is credited only after this first plan purchase is approved.</p>
+                      </div>
+                    )}
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="txid">Transaction ID / Reference</Label>

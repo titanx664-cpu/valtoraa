@@ -8,6 +8,7 @@ import { List } from "lucide-react";
 const TYPE_LABELS: Record<string, string> = {
   deposit: "Deposit",
   commission: "Commission",
+  first_purchase_bonus: "First Purchase Bonus",
   withdrawal_debit: "Withdrawal",
   withdrawal_refund: "Withdrawal Refund",
   admin_adjustment: "Admin Adjustment",

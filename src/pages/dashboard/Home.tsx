@@ -5,16 +5,16 @@ import { useNavigate } from "react-router-dom";
 import { formatPKR, formatDateTime, STATUS_COLORS } from "@/lib/format.ts";
 import {
   Wallet, TrendingUp, ArrowUpRight, ArrowDownLeft, Package, Clock,
-  Sparkles, ChevronRight, Users, ArrowRight
+  Sparkles, ChevronRight, Users, ArrowRight, Gift
 } from "lucide-react";
 import { cn } from "@/lib/utils.ts";
 import { motion } from "motion/react";
 import OnboardingChecklist from "./_components/OnboardingChecklist.tsx";
-import WithdrawalCountdown from "./_components/WithdrawalCountdown.tsx";
 
 export default function DashboardHome() {
   const wallet = useQuery(api.financial.getMyWallet);
   const user = useQuery(api.users.getCurrentUser);
+  const firstPurchaseBonus = useQuery(api.financial.getMyFirstPurchaseBonusStatus);
   const ledger = useQuery(api.financial.getMyLedger, {
     paginationOpts: { numItems: 5, cursor: null },
   });
@@ -41,6 +41,23 @@ export default function DashboardHome() {
           <Sparkles size={22} className="text-primary/50" />
         </motion.div>
       </motion.div>
+
+      {firstPurchaseBonus?.isEligible && (
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.03 }}
+          className="clay border-primary/35 bg-primary/5 px-4 py-3"
+        >
+          <div className="flex items-start gap-3">
+            <div className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-xl bg-primary/15 text-primary"><Gift size={17} /></div>
+            <div>
+              <p className="text-sm font-bold text-primary">First Plan Purchase Bonus — 7.5%</p>
+              <p className="mt-0.5 text-xs leading-5 text-muted-foreground">Complete your first plan purchase to receive an extra bonus: Starter +PKR 30 · Growth +PKR 42 · Elite +PKR 56.25.</p>
+            </div>
+          </div>
+        </motion.div>
+      )}
 
       {/* Balance hero card */}
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
@@ -70,9 +87,6 @@ export default function DashboardHome() {
 
       {/* Onboarding checklist */}
       <OnboardingChecklist />
-
-      {/* Withdrawal countdown */}
-      <WithdrawalCountdown />
 
       {/* Stats grid */}
       <div className="grid grid-cols-3 gap-3">
